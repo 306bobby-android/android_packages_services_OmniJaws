@@ -36,7 +36,7 @@ import android.os.HandlerThread;
 import android.text.TextUtils;
 import android.util.Log;
 
-import org.omnirom.omnijaws.widget.WeatherAppWidgetProvider;
+import org.omnirom.omnijaws.widget.WidgetConfig;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -389,7 +389,7 @@ public class WeatherUpdateService extends JobService {
                         if (w != null) {
                             Config.setWeatherData(WeatherUpdateService.this, w);
                             WeatherContentProvider.updateCachedWeatherInfo(WeatherUpdateService.this);
-                            WeatherAppWidgetProvider.updateAllWidgets(WeatherUpdateService.this);
+                            WidgetConfig.updateAllWidgets(WeatherUpdateService.this);
                             // we are outa here
                             break;
                         } else {
@@ -413,7 +413,7 @@ public class WeatherUpdateService extends JobService {
                         Config.setUpdateError(WeatherUpdateService.this, true);
                         Config.clearWeatherData(WeatherUpdateService.this);
                         WeatherContentProvider.updateCachedWeatherInfo(WeatherUpdateService.this);
-                        WeatherAppWidgetProvider.updateAllWidgets(WeatherUpdateService.this);
+                        WidgetConfig.updateAllWidgets(WeatherUpdateService.this);
                         if (locationError) {
                             Intent errorIntent = new Intent(ACTION_ERROR);
                             errorIntent.putExtra(EXTRA_ERROR, EXTRA_ERROR_LOCATION);

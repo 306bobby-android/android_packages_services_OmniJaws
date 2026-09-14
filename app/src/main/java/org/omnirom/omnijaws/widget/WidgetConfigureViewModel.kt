@@ -61,7 +61,7 @@ class WidgetConfigureViewModel(application: Application) : AndroidViewModel(appl
             .putInt(WidgetConfig.KEY_COLOR_THEME + "_" + appWidgetId, value.toInt())
             .apply()
         _uiState.update { it.copy(colorTheme = value) }
-        WeatherAppWidgetProvider.updateAfterConfigure(context, appWidgetId)
+        WidgetConfig.updateWidget(context, appWidgetId)
     }
 
     fun setBgTransparency(value: String) {
@@ -76,6 +76,6 @@ class WidgetConfigureViewModel(application: Application) : AndroidViewModel(appl
             .putInt(WidgetConfig.KEY_ICON_THEME + "_" + appWidgetId, value.toInt())
             .commit()
         _uiState.update { it.copy(iconTheme = value) }
-        WeatherAppWidgetProvider.updateAfterConfigure(context, appWidgetId)
+        WidgetConfig.updateWidget(context, appWidgetId)
     }
 }

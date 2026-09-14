@@ -73,7 +73,7 @@ class WeatherAppWidgetConfigureActivity : ComponentActivity() {
     }
 
     private fun confirmAndFinish() {
-        WeatherAppWidgetProvider.updateAfterConfigure(applicationContext, appWidgetId)
+        WidgetConfig.updateWidget(applicationContext, appWidgetId)
         setResult(
             RESULT_OK,
             Intent().putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)

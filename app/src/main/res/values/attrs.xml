@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: crDroid Android Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+
+    <!-- Tint of the pebble widget's background shape. Set by the themes the
+         light- and dark-background widget roots apply, the way DeskClock's
+         appWidgetBackgroundTint works. -->
+    <attr name="pebbleBackgroundTint" format="color" />
+
+</resources>

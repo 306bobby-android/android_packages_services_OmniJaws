@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: crDroid Android Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<!-- Material 3 Expressive pebble: four arcs, each touching one edge of the
+     viewport at its midpoint, joined by 45-degree straights at the top-left
+     and bottom-right. The control points sit 4a/3 along the 45-degree tangent
+     at each junction, which is what places the arc midpoints exactly on the
+     edges. White on purpose - the widget tints it to a wallpaper tone. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="182dp"
+    android:height="182dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M12.56,87.44C-4.19,70.69 -4.19,43.54 12.56,26.79L26.79,12.56C43.54,-4.19 70.69,-4.19 87.44,12.56C104.19,29.31 104.19,56.46 87.44,73.21L73.21,87.44C56.46,104.19 29.31,104.19 12.56,87.44Z" />
+
+</vector>

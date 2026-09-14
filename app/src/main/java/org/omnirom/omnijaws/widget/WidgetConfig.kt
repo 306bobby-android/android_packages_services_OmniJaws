@@ -4,7 +4,9 @@
  */
 package org.omnirom.omnijaws.widget
 
+import android.appwidget.AppWidgetManager
 import android.content.Context
+
 import androidx.preference.PreferenceManager
 
 import org.omnirom.omnijaws.icon.IconProvider
@@ -24,6 +26,24 @@ object WidgetConfig {
     const val BG_TRANS_FULL = 2
     const val BG_TRANS_SOLID = 3
     const val BG_TRANS_DEFAULT = BG_TRANS_SEMI
+
+    /** Both widget types share these prefs, so the owning provider has to be
+     *  resolved from the id before anything can be redrawn. */
+    @JvmStatic
+    fun updateWidget(context: Context, id: Int) {
+        val provider = AppWidgetManager.getInstance(context)?.getAppWidgetInfo(id)?.provider
+        if (provider?.className == WeatherPebbleAppWidgetProvider::class.java.name) {
+            WeatherPebbleAppWidgetProvider.updateAfterConfigure(context, id)
+        } else {
+            WeatherAppWidgetProvider.updateAfterConfigure(context, id)
+        }
+    }
+
+    @JvmStatic
+    fun updateAllWidgets(context: Context) {
+        WeatherAppWidgetProvider.updateAllWidgets(context)
+        WeatherPebbleAppWidgetProvider.updateAllWidgets(context)
+    }
 
     @JvmStatic
     fun clearPrefs(context: Context, id: Int) {

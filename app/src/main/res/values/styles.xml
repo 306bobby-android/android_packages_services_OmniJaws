@@ -98,4 +98,17 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <!-- Pebble widget roots. Both parent a *Light* dynamic theme exactly as
+         DeskClock's widget themes do, so colorPrimaryContainer is the same
+         tone in each and only the background tint differs. Which of the two
+         the launcher inflates is its call, via setLightBackgroundLayoutId. -->
+    <style name="Theme.OmniJaws.PebbleWidget" parent="Theme.Material3Expressive.DynamicColors.Light" />
+
+    <style name="Theme.OmniJaws.PebbleWidget.DarkBg">
+        <item name="pebbleBackgroundTint">@color/weather_pebble_bg_dark</item>
+    </style>
+
+    <style name="Theme.OmniJaws.PebbleWidget.LightBg">
+        <item name="pebbleBackgroundTint">@color/weather_pebble_bg_light</item>
+    </style>
 </resources>

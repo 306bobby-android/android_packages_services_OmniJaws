@@ -30,7 +30,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.omnirom.omnijaws.Config
 import org.omnirom.omnijaws.WeatherUpdateService
-import org.omnirom.omnijaws.widget.WeatherAppWidgetProvider
+import org.omnirom.omnijaws.widget.WidgetConfig
 import org.omnirom.omnijaws.icon.IconProvider
 import org.omnirom.omnijaws.icon.IconPack
 
@@ -120,7 +120,7 @@ class SettingsViewModel(application: Application) : AndroidViewModel(application
             WeatherUpdateService.scheduleUpdatePeriodic(ctx)
         } else {
             WeatherUpdateService.cancelAllUpdate(ctx)
-            WeatherAppWidgetProvider.disableAllWidgets(ctx)
+            WidgetConfig.updateAllWidgets(ctx)
             WeatherUpdateService.disabledCall(ctx)
         }
     }
@@ -177,7 +177,7 @@ class SettingsViewModel(application: Application) : AndroidViewModel(application
     fun setIconTheme(value: String) {
         Config.setIconTheme(ctx, value.toInt())
         _uiState.value = _uiState.value.copy(iconTheme = value)
-        WeatherAppWidgetProvider.updateAllWidgets(ctx)
+        WidgetConfig.updateAllWidgets(ctx)
     }
 
     fun setOwmKey(value: String) {
